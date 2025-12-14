@@ -93,7 +93,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Upload artifact for verification
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v6
         with:
           name: extension-package
           path: quickhub-${{ steps.version.outputs.VERSION }}.zip
