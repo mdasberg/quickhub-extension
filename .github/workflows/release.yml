@@ -1,0 +1,99 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers on version tags like v1.0.0, v1.1.0, etc.
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      
+      - name: Create extension package
+        run: |
+          # Create a temporary directory for the extension
+          mkdir -p quickhub-extension
+          
+          # Copy extension files (exclude documentation and repo files)
+          cp manifest.json quickhub-extension/
+          cp newtab.html quickhub-extension/
+          cp script.js quickhub-extension/
+          cp styles.css quickhub-extension/
+          cp icon*.png quickhub-extension/
+          cp icon.svg quickhub-extension/
+          
+          # Create zip file
+          cd quickhub-extension
+          zip -r ../quickhub-${{ steps.version.outputs.VERSION }}.zip .
+          cd ..
+      
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          # Get the previous tag
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          
+          # If there's a previous tag, get commits since then
+          if [ -n "$PREV_TAG" ]; then
+            CHANGELOG=$(git log $PREV_TAG..HEAD --pretty=format:"- %s" --no-merges)
+          else
+            CHANGELOG=$(git log --pretty=format:"- %s" --no-merges)
+          fi
+          
+          # Create release notes
+          cat > release_notes.md << EOF
+          ## What's New in ${{ steps.version.outputs.VERSION }}
+          
+          $CHANGELOG
+          
+          ## Installation
+          
+          ### For Users:
+          1. Download \`quickhub-${{ steps.version.outputs.VERSION }}.zip\` below
+          2. Extract the zip file
+          3. Open Brave/Chrome and go to \`brave://extensions/\` or \`chrome://extensions/\`
+          4. Enable "Developer mode"
+          5. Click "Load unpacked"
+          6. Select the extracted folder
+          
+          ### For Developers:
+          See [README.md](https://github.com/mdasberg/quickhub-extension/blob/main/README.md) for development setup.
+          
+          ## Features
+          - 📁 Organize links in custom groups
+          - 🔄 Drag & drop to reorder groups and links
+          - 🖼️ Auto-rotating backgrounds with manual refresh
+          - 🔄 Cross-device sync
+          - 💾 Export/Import backup
+          - 🔍 Integrated web search
+          - 📊 Usage statistics
+          - 🎨 Beautiful dark theme
+          EOF
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: quickhub-${{ steps.version.outputs.VERSION }}.zip
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload artifact for verification
+        uses: actions/upload-artifact@v3
+        with:
+          name: extension-package
+          path: quickhub-${{ steps.version.outputs.VERSION }}.zip

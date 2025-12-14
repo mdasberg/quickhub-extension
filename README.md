@@ -217,6 +217,8 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 - 💡 Have a feature idea? [Open an issue](../../issues)
 - 🔧 Want to contribute code? [Submit a pull request](../../pulls)
 
+§**Automated Releases:** This repository uses GitHub Actions to automatically create releases. See [.github/RELEASE_GUIDE.md](.github/RELEASE_GUIDE.md) for details.
+
 ## License
 
 MIT License - See [LICENSE](LICENSE) for full details.
