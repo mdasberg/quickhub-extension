@@ -1,0 +1,26 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.log
+*.tmp
+.cache/
+
+# Build artifacts (if you add build steps later)
+dist/
+build/
+*.zip
+
+# Dependencies (if you add npm later)
+node_modules/
+package-lock.json
+yarn.lock

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="search-container">
+      <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input 
+        type="text" 
+        class="search-input" 
+        id="searchInput" 
+        placeholder="Search the web..."
+        autocomplete="off"
+      />
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="stat-item">
+      <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 7V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="stat-value" id="sitesVisited">0</span>
+      <span class="stat-label">sites visited</span>
+    </div>
+    <div class="stat-item">
+      <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17.5 21L15.5 19L17.5 17M20.5 17L22.5 19L20.5 21M18.5 22V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="stat-value" id="linksManaged">0</span>
+      <span class="stat-label">links</span>
+    </div>
+    <div class="stat-item">
+      <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span class="stat-value" id="groupsCount">0</span>
+      <span class="stat-label">groups</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Your Links</h1>
+      <div style="display: flex; gap: 12px;">
+        <button class="btn-settings" id="settingsBtn" title="Settings">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M16.25 10C16.25 9.58333 16.2083 9.16667 16.1667 8.75L18.125 7.20833C18.2917 7.08333 18.3333 6.83333 18.2083 6.66667L16.375 3.75C16.25 3.58333 16 3.5 15.8333 3.58333L13.5833 4.5C13.0833 4.125 12.5417 3.79167 11.9583 3.54167L11.5833 1.16667C11.5417 0.958333 11.375 0.833333 11.1667 0.833333H7.5C7.29167 0.833333 7.125 0.958333 7.08333 1.16667L6.70833 3.54167C6.125 3.79167 5.58333 4.125 5.08333 4.5L2.83333 3.58333C2.66667 3.5 2.41667 3.58333 2.29167 3.75L0.458333 6.66667C0.333333 6.83333 0.375 7.08333 0.541667 7.20833L2.5 8.75C2.45833 9.16667 2.41667 9.58333 2.41667 10C2.41667 10.4167 2.45833 10.8333 2.5 11.25L0.541667 12.7917C0.375 12.9167 0.333333 13.1667 0.458333 13.3333L2.29167 16.25C2.41667 16.4167 2.66667 16.5 2.83333 16.4167L5.08333 15.5C5.58333 15.875 6.125 16.2083 6.70833 16.4583L7.08333 18.8333C7.125 19.0417 7.29167 19.1667 7.5 19.1667H11.1667C11.375 19.1667 11.5417 19.0417 11.5833 18.8333L11.9583 16.4583C12.5417 16.2083 13.0833 15.875 13.5833 15.5L15.8333 16.4167C16 16.5 16.25 16.4167 16.375 16.25L18.2083 13.3333C18.3333 13.1667 18.2917 12.9167 18.125 12.7917L16.1667 11.25C16.2083 10.8333 16.25 10.4167 16.25 10Z" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </button>
+        <button class="btn-add-group" id="addGroupBtn">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          New Group
+        </button>
+      </div>
+    </header>
+
+    <div class="groups-container" id="groupsContainer">
+      <!-- Groups will be added dynamically -->
+    </div>
+  </div>
+
+  <!-- Add Group Modal -->
+  <div class="modal" id="groupModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">New Group</h2>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="input" id="groupNameInput" placeholder="Group name" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
+        <button class="btn btn-primary" id="saveGroupBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Link Modal -->
+  <div class="modal" id="linkModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Add Link</h2>
+        <button class="modal-close" id="closeLinkModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="input" id="linkTitleInput" placeholder="Link title" />
+        <input type="url" class="input" id="linkUrlInput" placeholder="https://example.com" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelLinkBtn">Cancel</button>
+        <button class="btn btn-primary" id="saveLinkBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal" id="settingsModal">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Settings</h2>
+        <button class="modal-close" id="closeSettingsModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Background Settings -->
+        <div class="settings-section">
+          <h3 class="settings-subtitle">Background</h3>
+          
+          <div class="settings-option">
+            <label class="toggle-label">
+              <input type="checkbox" id="autoBackgroundToggle" class="toggle-input" />
+              <span class="toggle-slider"></span>
+              <span class="toggle-text">Auto-rotating daily backgrounds</span>
+            </label>
+            <p class="settings-hint">Beautiful high-quality photos that change every day</p>
+          </div>
+
+          <div id="autoBackgroundControls" style="display: none; margin-top: 16px;">
+            <div class="background-preview" id="autoBackgroundPreview">
+              <p class="empty-state">Loading background...</p>
+            </div>
+            <button class="btn btn-secondary" id="refreshBackgroundBtn" style="margin-top: 12px; width: 100%;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right: 8px;">
+                <path d="M13.65 2.35C12.2 0.9 10.21 0 8 0C3.58 0 0.01 3.58 0.01 8C0.01 12.42 3.58 16 8 16C11.73 16 14.84 13.45 15.73 10H13.65C12.83 12.33 10.61 14 8 14C4.69 14 2 11.31 2 8C2 4.69 4.69 2 8 2C9.66 2 11.14 2.69 12.22 3.78L9 7H16V0L13.65 2.35Z" fill="currentColor"/>
+              </svg>
+              Get New Background
+            </button>
+          </div>
+
+          <div id="manualBackgroundSection">
+            <div class="background-preview" id="backgroundPreview">
+              <p class="empty-state">No background image set</p>
+            </div>
+            <div style="display: flex; gap: 12px; margin-top: 12px;">
+              <input type="file" id="backgroundInput" accept="image/*" style="display: none;" />
+              <button class="btn btn-secondary" id="uploadBackgroundBtn" style="flex: 1;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right: 8px;">
+                  <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10M11.3333 5.33333L8 2M8 2L4.66667 5.33333M8 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Upload Image
+              </button>
+              <button class="btn btn-secondary" id="removeBackgroundBtn" style="flex: 1;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right: 8px;">
+                  <path d="M2 4H14M12.6667 4V13.3333C12.6667 14 12 14.6667 11.3333 14.6667H4.66667C4 14.6667 3.33333 14 3.33333 13.3333V4M5.33333 4V2.66667C5.33333 2 6 1.33333 6.66667 1.33333H9.33333C10 1.33333 10.6667 2 10.6667 2.66667V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Remove
+              </button>
+            </div>
+            <p class="settings-hint">Upload a custom background image (max 5MB)</p>
+          </div>
+        </div>
+
+        <!-- Sync Settings -->
+        <div class="settings-section">
+          <h3 class="settings-subtitle">Sync & Backup</h3>
+          
+          <div class="settings-option">
+            <label class="toggle-label">
+              <input type="checkbox" id="syncToggle" class="toggle-input" />
+              <span class="toggle-slider"></span>
+              <span class="toggle-text">Sync across devices</span>
+            </label>
+            <p class="settings-hint">Automatically sync your links across all Brave browsers where you're logged in</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 16px;">
+            <button class="btn btn-secondary" id="exportBtn" style="flex: 1;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right: 8px;">
+                <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10M4.66667 6.66667L8 10M8 10L11.3333 6.66667M8 10V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Export Data
+            </button>
+            <button class="btn btn-secondary" id="importBtn" style="flex: 1;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right: 8px;">
+                <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10M11.3333 5.33333L8 2M8 2L4.66667 5.33333M8 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Import Data
+            </button>
+          </div>
+          <input type="file" id="importInput" accept=".json" style="display: none;" />
+          <p class="settings-hint">Export your configuration as a backup or import from a previous backup</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="closeSettingsBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
