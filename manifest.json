@@ -3,7 +3,7 @@
   "name": "QuickHub",
   "version": "1.0.0",
   "description": "Organize your links in beautiful, customizable groups on your new tab page",
-  "permissions": ["storage"],
+  "permissions": ["storage", "search"],
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },

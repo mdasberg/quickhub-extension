@@ -46,6 +46,7 @@ If you enable "Sync across devices":
 The extension requires minimal permissions:
 
 - **Storage** - To save your links and settings locally
+- **Search** - To use your browser's default search engine (respects your choice of Google, Bing, DuckDuckGo, etc.)
 
 ## Your Rights
 

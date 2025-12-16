@@ -97,13 +97,16 @@ function attachEventListeners() {
   importBtn.addEventListener('click', () => importInput.click());
   importInput.addEventListener('change', importData);
   
-  // Search functionality
+  // Search functionality - Uses Chrome Search API to respect user's default search engine
   searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       const query = searchInput.value.trim();
       if (query) {
-        // Use default search engine (Google)
-        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        // Use Chrome Search API to respect user's default search engine
+        chrome.search.query({
+          text: query,
+          disposition: 'CURRENT_TAB'
+        });
       }
     }
   });

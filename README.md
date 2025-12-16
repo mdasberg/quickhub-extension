@@ -4,12 +4,13 @@ A beautiful browser extension for organizing your links in customizable groups o
 
 ## Features
 
-- 🔍 **Integrated Search** - Search the web directly from your new tab
+- 🔍 **Integrated Search** - Search the web using your default search engine (respects your choice of Google, Bing, DuckDuckGo, etc.)
 - 📊 **Usage Statistics** - Track sites visited today, total links, and groups
 - 🖼️ **Auto-rotating Backgrounds** - Beautiful daily photos or upload your own
 - 🔄 **Cross-device Sync** - Sync your links across all Brave browsers (when logged in)
 - 💾 **Backup & Restore** - Export/import your configuration as JSON
 - 📁 **Organized Groups** - Create custom groups to categorize your links
+- 📂 **Collapsible Groups** - Collapse/expand groups to save space
 - 🎯 **Drag & Drop** - Reorder both groups and links within groups
 - 🎨 **Beautiful Design** - Refined dark theme with smooth animations
 - ⚡ **Fast Access** - All your important links on your new tab page
@@ -34,7 +35,7 @@ The extension will automatically replace your new tab page. Open a new tab to se
 
 ### Web Search
 
-Simply type your search query in the search bar at the top and press **Enter** to search the web using Google.
+Simply type your search query in the search bar at the top and press **Enter** to search the web using your browser's default search engine (respects your choice of Google, Bing, DuckDuckGo, etc.).
 
 ### Statistics
 
@@ -48,6 +49,13 @@ The stats appear in the bottom-right corner (similar to the default new tab), di
 1. Click the **"New Group"** button in the top right
 2. Enter a name for your group
 3. Click **Save**
+
+### Collapsing/Expanding Groups
+
+1. Hover over a group to reveal the collapse button (▼)
+2. Click the collapse button to hide the links
+3. Click again to expand and show the links
+4. Collapsed state is saved automatically
 
 ### Reordering Groups
 
@@ -65,7 +73,7 @@ The stats appear in the bottom-right corner (similar to the default new tab), di
 ### Setting a Background
 
 1. Click the **Settings** button (⚙️) in the top right
-2. **Auto-rotating backgrounds**: 
+2. **Auto-rotating backgrounds**:
    - Toggle on to get beautiful high-quality photos that change daily
    - Click **"Get New Background"** to instantly load a different random image
    - Each day automatically loads a fresh image
@@ -198,6 +206,7 @@ This extension respects your privacy:
 
 **Permissions:**
 - `storage` - To save your link groups and settings
+- `search` - To use your browser's default search engine (respects your choice of Google, Bing, DuckDuckGo, etc.)
 
 **Note:** When using auto-backgrounds, one image is fetched daily from Picsum Photos. No personal data is sent or collected.
 
@@ -240,10 +249,11 @@ If you find this extension helpful, consider:
 ### Version 1.0.0
 - Initial release
 - QuickHub groups with drag & drop reordering
+- Collapsible groups to save space
 - Auto-rotating backgrounds with manual refresh
 - Cross-device sync via browser sync
 - Export/Import functionality
-- Integrated web search
+- Integrated web search (respects user's default search engine)
 - Usage statistics
 - Custom background upload
 
